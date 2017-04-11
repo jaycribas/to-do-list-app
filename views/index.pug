@@ -3,3 +3,7 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+  -for (todo of todos) {
+  p #{todo.todo}
+  p #{todo.iscomplete}
+  -}

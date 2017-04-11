@@ -7,7 +7,7 @@ CREATE TABLE todos (
   id SERIAL PRIMARY KEY,
   todo VARCHAR(140),
   isComplete BOOLEAN DEFAULT false,
-  ranking SERIAL
+  rank SERIAL
 );
 
 INSERT INTO todos (todo, isComplete)
