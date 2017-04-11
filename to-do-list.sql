@@ -5,8 +5,9 @@ CREATE DATABASE todolist;
 
 CREATE TABLE todos (
   id SERIAL PRIMARY KEY,
-  todo TEXT,
-  isComplete BOOLEAN
+  todo VARCHAR(140),
+  isComplete BOOLEAN DEFAULT false,
+  ranking SERIAL
 );
 
 INSERT INTO todos (todo, isComplete)
