@@ -5,7 +5,7 @@ CREATE DATABASE todolist;
 
 CREATE TABLE todos (
   id SERIAL PRIMARY KEY,
-  todo VARCHAR(140),
+  todo VARCHAR(140) NOT NULL,
   isComplete BOOLEAN DEFAULT false,
   rank SERIAL
 );
