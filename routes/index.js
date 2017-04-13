@@ -6,7 +6,7 @@ var { Todo } = require('../mainDB')
 router.get('/', function(req, res, next) {
   Todo.getAllTodos()
   .then(todos => {
-    res.render('index', { title: 'Express', todos: todos });
+    res.render('index', { title: 'Todo todo', todos: todos });
   })
 });
 
@@ -18,7 +18,7 @@ router.post('/create', function(req, res) {
   })
 
 router.put('/iscomplete/:id', function(req, res) {
-  const id = req.params.id
+  const { id } = req.params
   Todo.isComplete(id)
   .then(() =>
     res.redirect('/'))
@@ -38,5 +38,26 @@ router.delete('/delete/:id', function(req, res) {
   .then(() =>
     res.redirect('/'))
 })
+
+router.put('/setRankUp/:id', function(req, res) {
+  const { id } = req.params
+  const { rank } = req.body
+  Todo.setRankUp(id, rank)
+  .then(() => {
+    res.redirect('/')
+  })
+
+
+  router.put('/setRankDown/:id', function(req, res) {
+    const { id } = req.params
+    const { rank } = req.body
+    Todo.setRankDown(id, rank)
+    .then(() => {
+      res.redirect('/')
+    })
+  })
+})
+
+
 
 module.exports = router;
