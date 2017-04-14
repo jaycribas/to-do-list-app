@@ -3,48 +3,43 @@ extends layout
 block content
   
   div.wrap
-  form(
+  form.addTodo(
     action='/create' 
     method='post'
   )
-     input.createTodo-input(
-       type='text' 
-       placeholder='New todo' 
-       name='todo'
-     )
-     button.createTodoBtn(
-       type='submit'
-     ) + 
+    input.createTodo-input(
+      type='text' 
+      placeholder='New todo' 
+      name='todo'
+    )
+    button.createTodoBtn(
+      type='submit'
+    ) + 
      
   br
 
   div.list
     for todo in todos
-      form.iscomplete(
-        action=`/iscomplete/${todo.id}`
-      )
-        if todo.iscomplete
-          button
-            i.fa.fa-check(aria-hidden='true')
-          input.editTodo-input(
-            type='text' 
-            name='todo' 
-            value=todo.todo
-            readonly
+      ul
+        li
+          form.iscomplete(
+            action=`/iscomplete/${todo.id}`
           )
+            if todo.iscomplete
+              button
+                i.fa.fa-check(aria-hidden='true')
+               
+            else
+              button
             
-        else
-          button
-          input.editTodo-input(
-            type='text' 
-            name='todo' 
-            value=todo.todo
+          form.todo-list(
+            action=`/update/${todo.id}` 
+            method='post'
           )
-
-        
-        form.todo-list(
-          action=`/update/${todo.id}` 
-          method='post'
-        )
+            input.editTodo-input(
+              type='text' 
+              name='todo' 
+              value=todo.todo
+            )
           a(href='/delete/' + todo.id) 
             i.fa.fa-trash(aria-hidden='true')
