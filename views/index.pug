@@ -1,8 +1,17 @@
 extends layout
 
 block content
-  h1 Todo List App!
-  p Welcome to Our Todo List App
-  -for (todo of todos) {
-  p #{todo.todo}: #{todo.iscomplete}
-  -}
+  
+  div.wrap
+  form(action='/create', method='post')
+     input.createTodo-input(type='text' placeholder='New todo' name='todo')
+     button.createTodoBtn(type='submit') + 
+     
+  br
+ 
+  div.list
+    for todo in todos
+      form.todo-list(action=`/update/${todo.id}` method='post')
+        input.editTodo-input(type='text' name='todo' value=todo.todo)
+        a(href='/delete/' + todo.id) Delete
+        a(href='/iscomplete/' + todo.id) Complete
