@@ -3,15 +3,48 @@ extends layout
 block content
   
   div.wrap
-  form(action='/create', method='post')
-     input.createTodo-input(type='text' placeholder='New todo' name='todo')
-     button.createTodoBtn(type='submit') + 
+  form(
+    action='/create' 
+    method='post'
+  )
+     input.createTodo-input(
+       type='text' 
+       placeholder='New todo' 
+       name='todo'
+     )
+     button.createTodoBtn(
+       type='submit'
+     ) + 
      
   br
- 
+
   div.list
     for todo in todos
-      form.todo-list(action=`/update/${todo.id}` method='post')
-        input.editTodo-input(type='text' name='todo' value=todo.todo)
-        a(href='/delete/' + todo.id) Delete
-        a(href='/iscomplete/' + todo.id) Complete
+      form.iscomplete(
+        action=`/iscomplete/${todo.id}`
+      )
+        if todo.iscomplete
+          button
+            i.fa.fa-check(aria-hidden='true')
+          input.editTodo-input(
+            type='text' 
+            name='todo' 
+            value=todo.todo
+            readonly
+          )
+            
+        else
+          button
+          input.editTodo-input(
+            type='text' 
+            name='todo' 
+            value=todo.todo
+          )
+
+        
+        form.todo-list(
+          action=`/update/${todo.id}` 
+          method='post'
+        )
+          a(href='/delete/' + todo.id) 
+            i.fa.fa-trash(aria-hidden='true')

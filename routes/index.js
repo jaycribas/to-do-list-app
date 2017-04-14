@@ -6,7 +6,7 @@ var { Todo } = require('../mainDB')
 router.get('/', function(req, res, next) {
   Todo.getAllTodos()
   .then(todos => {
-    res.render('index', { title: 'Todo todo', todos: todos });
+    res.render('index', { title: 'Todo todos', todos: todos });
   })
 });
 
