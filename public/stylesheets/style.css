@@ -1,8 +1,94 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  text-align: center;
+  background: #f5f5f5 ;
+  color: #4d4d4d ;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  font-family: 'Merriweather Sans', sans-serif !important;
 }
 
-a {
-  color: #00B7FF;
+ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+li {
+  display: inline;
+}
+
+.list {
+  padding-left: 0 !important;
+}
+
+.iscomplete {
+  margin-right: 10px;
+}
+/*.createTodoBtn{
+  margin-left: 10px;
+}*/
+button {
+  display: inline-block;
+  margin: 10px;
+  font-family: FontAwesome;
+}
+
+.wrap {
+  width: 95%;
+  margin: 20px auto;
+}
+
+h1 {
+  display: inline;
+  font-size: 50px !important;
+  margin-top: 10px;
+}
+.todo-list {
+  display: inline;
+  margin: 10px 0;
+}
+
+form {
+  display: inline;
+
+}
+
+
+.createTodo-input {
+  margin-bottom: 15px;
+}
+
+.createTodoBtn {
+
+}
+
+.title {
+  font-weight: 300;
+}
+
+.title-do {
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+}
+
+header {
+  color: white;
+  background-color: black;
+  font-family: 'Lato', sans-serif;
+  margin: 20px 0;
+  width: 100%;
+  top:0;
+}
+
+.list {
+  padding-left: 20px;
+}
+
+
+textarea:focus, input:focus {
+  outline: none;
+}
+
+*:focus {
+    outline: none;
 }
